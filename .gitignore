@@ -1,0 +1,17 @@
+node_modules/
+dist/
+release/
+artifacts/
+.npm-cache/
+.electron-cache/
+.electron-builder-cache/
+*.log
+.DS_Store
+Thumbs.db
+*.tsbuildinfo
+
+# local scratch / diagnostics (never commit)
+.tmp/
+*.dmp
+.probe*.cjs
+.probe*-result.txt

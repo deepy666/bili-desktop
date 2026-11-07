@@ -1,0 +1,40 @@
+# electron-builder configuration for Bili Desktop (Windows 10/11, x64).
+#
+# Production builds bundle only the compiled output (dist/) and package.json:
+# every runtime dependency is compiled into dist/main/index.js by esbuild, so the
+# app has no node_modules tree to ship.
+appId: com.bilidesktop.app
+productName: Bili Desktop
+copyright: Copyright © 2026 Bili Desktop Contributors
+
+directories:
+  output: release
+  buildResources: build
+
+files:
+  - dist/**/*
+  - package.json
+
+asar: true
+compression: normal
+npmRebuild: false
+
+win:
+  icon: build/icon.ico
+  target:
+    - target: nsis
+      arch:
+        - x64
+  legalTrademarks: ""
+  artifactName: ${productName}-${version}-${arch}-setup.${ext}
+
+nsis:
+  oneClick: false
+  perMachine: false
+  allowElevation: true
+  allowToChangeInstallationDirectory: true
+  createDesktopShortcut: true
+  createStartMenuShortcut: true
+  shortcutName: Bili Desktop
+  deleteAppDataOnUninstall: false
+  runAfterFinish: true

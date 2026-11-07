@@ -1,0 +1,40 @@
+{
+  "name": "bili-desktop",
+  "productName": "Bili Desktop",
+  "version": "0.1.0",
+  "description": "Third-party Bilibili hybrid desktop client for Windows 10/11",
+  "main": "dist/main/index.js",
+  "author": {
+    "name": "Bili Desktop Contributors"
+  },
+  "license": "MIT",
+  "private": true,
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "dev": "node scripts/dev.mjs",
+    "typecheck": "tsc --noEmit",
+    "build": "node scripts/build.mjs",
+    "build:main": "node scripts/build-main.mjs",
+    "build:renderer": "vite build",
+    "start": "electron .",
+    "smoke": "node scripts/smoke.mjs",
+    "pack": "node scripts/build.mjs && cross-env ELECTRON_BUILDER_CACHE=.electron-builder-cache electron-builder --dir --config electron-builder.yml",
+    "build:win": "node scripts/build.mjs && cross-env ELECTRON_BUILDER_CACHE=.electron-builder-cache electron-builder --win nsis --config electron-builder.yml"
+  },
+  "devDependencies": {
+    "@types/node": "24.19.2",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "@vitejs/plugin-react": "5.2.0",
+    "cross-env": "10.1.0",
+    "electron": "^44.7.0",
+    "electron-builder": "26.18.0",
+    "esbuild": "0.28.2",
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
+    "typescript": "5.9.3",
+    "vite": "7.3.7"
+  }
+}
